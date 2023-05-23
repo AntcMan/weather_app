@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  temperature: 1.5
+  description: MyString
+  feels_like: 1.5
+  humidity: 1.5
+  sunrise: 2023-05-23 18:03:37
+  sunset: 2023-05-23 18:03:37
+  icon: MyString
+
+two:
+  city: MyString
+  temperature: 1.5
+  description: MyString
+  feels_like: 1.5
+  humidity: 1.5
+  sunrise: 2023-05-23 18:03:37
+  sunset: 2023-05-23 18:03:37
+  icon: MyString
