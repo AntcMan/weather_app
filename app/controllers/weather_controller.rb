@@ -25,6 +25,6 @@ class WeatherController < ApplicationController
       flash[:alert] = 'City not found'
     end
 
-    redirect_to root_path
+    render 'search'
   end
 end
