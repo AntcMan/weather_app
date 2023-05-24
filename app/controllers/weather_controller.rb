@@ -12,14 +12,12 @@ class WeatherController < ApplicationController
         # SETS THE TEMPERATURE ATTRIBUTE TO THE VALUE OF THE 'TEMP' FIELD
         # NESTED WITHIN THE 'MAIN' FIELD OF THE API RESPONSE.
         temperature: weather_data['main']['temp'],
-        # description: weather_data['weather']['description'],
+        description: weather_data['weather'][0]['description'],
         icon: weather_data['weather'][0]['icon'],
         feels_like: weather_data['main']['feels_like'],
         humidity: weather_data['main']['humidity'],
         sunrise: Time.at(weather_data['sys']['sunrise']).to_datetime,
         sunset: Time.at(weather_data['sys']['sunset']).to_datetime,
-        # sunrise: weather_data['sys']['sunrise'],
-        # sunset: weather_data['sys']['sunset'],
         clouds: weather_data['clouds']['all']
       )
       @weather.save
