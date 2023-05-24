@@ -1,1 +1,32 @@
-<h1>Search the weather for anywhere!</h1>
+<div class="section flex-col p-10">
+  <div class="header border-solid border-2 border-indigo-600">
+    <h1 class="my-4">Search the weather for anywhere!</h1>
+  </div>
+
+  <div class="content-form border-solid border-2 border-red-600">
+    <div class="search">
+      <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :city, nil, placeholder: 'e.g. Melbourne, AU' %>
+        <%= submit_tag 'Search' %>
+      <% end %>
+    </div>
+
+    <div class="search-results border-solid border-2 border-red-600">
+      <% if @weather %>
+        <h3>
+          Current weather in: <%= @weather.city %>
+        </h3>
+        <p>Temperature: <%= @weather.temperature %>°C</p>
+        <p>Description: <%= @weather.description %></p>
+        <p>Feels like: <%= @weather.feels_like %></p>
+        <p>Humidity: <%= @weather.humidity %></p>
+        <p>Sunrise: <%= @weather.sunrise.strftime('%H:%M:%S') %></p>
+        <p>Sunset: <%= @weather.sunset.strftime('%H:%M:%S') %></p>
+        <p>Cloud coverage: <%= @weather.clouds %> </p>
+        <img src="http://openweathermap.org/img/w/<%= @weather.icon %>.png" alt="Weather Icon">
+      <% elsif flash[:alert] %>
+        <p><%= flash[:alert]%></p>
+      <% end %>
+    </div>
+  </div>
+</div>
